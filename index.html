@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<form id="quizForm">
+    <div class="mb-3 mt-3">
+        <label for="name" class="form-label">Imię:</label>
+        <input type="text" class="form-control" id="name" placeholder="wpisz imię" name="name">
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="surname" class="form-label">Email:</label>
+        <input type="text" class="form-control" id="surname" placeholder="wpisz nazwisko" name="surname">
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="wpisz Email" name="email">
+    </div>
+    <!-- Pytanie 1 -->
+    <div class="mb-3 mt-3">
+        <label for="q1a" class="form-label">Co oznacza skrót HTML?</label><br>
+        <input type="radio" class="form-check-input" id="q1a" name="q1" value="Hypertext Markup Language" data-correct="true">>
+        <label for="q1a" class="form-check-label">Hypertext Markup Language</label><br>
+        <input type="radio" class="form-check-input" id="q1b" name="q1" value="Hypertext Making Language">
+        <label for="q1b" class="form-check-label">Hypertext Making Language</label><br>
+        <input type="radio" class="form-check-input" id="q1c" name="q1" value="Hyper Tool Machine Language">
+        <label for="q1c" class="form-check-label">Hyper Tool Machine Language</label><br>
+    </div>
+
+    <!-- Pytanie 2 -->
+    <div class="mb-3 mt-3">
+        <label for="q2a" class="form-label">Który tag HTML służy do tworzenia największego nagłówka na stronie?</label><br>
+        <input type="radio" class="form-check-input" id="q2a" name="q2" value="<h1>" data-correct="true">>
+        <label for="q2a" class="form-check-label">&lt;h1&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q2b" name="q2" value="<h2>">
+        <label for="q2b" class="form-check-label">&lt;h2&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q2c" name="q2" value="<h3>">
+        <label for="q2c" class="form-check-label">&lt;h3&gt;</label><br>
+    </div>
+
+    <!-- Pytanie 3 -->
+    <div class="mb-3 mt-3">
+        <label for="q3a" class="form-label">Jakiego tagu używamy, aby dodać link do strony?</label><br>
+        <input type="radio" class="form-check-input" id="q3a" name="q3" value="<link>">
+        <label for="q3a" class="form-check-label">&lt;link&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q3b" name="q3" value="<a>" data-correct="true">>
+        <label for="q3b" class="form-check-label">&lt;a&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q3c" name="q3" value="<href>">
+        <label for="q3c" class="form-check-label">&lt;href&gt;</label><br>
+    </div>
+
+    <!-- Pytanie 4 -->
+    <div class="mb-3 mt-3">
+        <label for="q4a" class="form-label">Który z poniższych tagów jest używany do dodania obrazka na stronę?</label><br>
+        <input type="radio" class="form-check-input" id="q4a" name="q4" value="<img>" data-correct="true">>
+        <label for="q4a" class="form-check-label">&lt;img&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q4b" name="q4" value="<image>">
+        <label for="q4b" class="form-check-label">&lt;image&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q4c" name="q4" value="<pic>">
+        <label for="q4c" class="form-check-label">&lt;pic&gt;</label><br>
+    </div>
+
+    <!-- Pytanie 5 -->
+    <div class="mb-3 mt-3">
+        <label for="q5a" class="form-label">Co zawiera sekcja &lt;head&gt; w dokumencie HTML?</label><br>
+        <input type="radio" class="form-check-input" id="q5a" name="q5" value="Treść strony, którą widzimy w przeglądarce">
+        <label for="q5a" class="form-check-label">Treść strony, którą widzimy w przeglądarce</label><br>
+        <input type="radio" class="form-check-input" id="q5b" name="q5" value="Informacje o stronie, takie jak tytuł i linki do stylów" data-correct="true">>
+        <label for="q5b" class="form-check-label">Informacje o stronie, takie jak tytuł i linki do stylów</label><br>
+        <input type="radio" class="form-check-input" id="q5c" name="q5" value="Listę obrazków na stronie">
+        <label for="q5c" class="form-check-label">Listę obrazków na stronie</label><br>
+    </div>
+
+    <!-- Pytanie 6 -->
+    <div class="mb-3 mt-3">
+        <label for="q6a" class="form-label">Którego tagu używamy do tworzenia akapitów w HTML?</label><br>
+        <input type="radio" class="form-check-input" id="q6a" name="q6" value="<p>" data-correct="true">>
+        <label for="q6a" class="form-check-label">&lt;p&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q6b" name="q6" value="<br>">
+        <label for="q6b" class="form-check-label">&lt;br&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q6c" name="q6" value="<div>">
+        <label for="q6c" class="form-check-label">&lt;div&gt;</label><br>
+    </div>
+
+    <!-- Pytanie 7 -->
+    <div class="mb-3 mt-3">
+        <label for="q7a" class="form-label">Który z poniższych tagów HTML jest używany do tworzenia listy punktowanej?</label><br>
+        <input type="radio" class="form-check-input" id="q7a" name="q7" value="<ul>" data-correct="true">>
+        <label for="q7a" class="form-check-label">&lt;ul&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q7b" name="q7" value="<ol>">
+        <label for="q7b" class="form-check-label">&lt;ol&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q7c" name="q7" value="<li>">
+        <label for="q7c" class="form-check-label">&lt;li&gt;</label><br>
+    </div>
+
+    <!-- Pytanie 8 -->
+    <div class="mb-3 mt-3">
+        <label for="q8a" class="form-label">Jakie znaczenie ma atrybut src w tagu &lt;img&gt;?</label><br>
+        <input type="radio" class="form-check-input" id="q8a" name="q8" value="Określa wysokość obrazka">
+        <label for="q8a" class="form-check-label">Określa wysokość obrazka</label><br>
+        <input type="radio" class="form-check-input" id="q8b" name="q8" value="Określa źródło obrazka" data-correct="true">>
+        <label for="q8b" class="form-check-label">Określa źródło obrazka</label><br>
+        <input type="radio" class="form-check-input" id="q8c" name="q8" value="Określa tekst alternatywny obrazka">
+        <label for="q8c" class="form-check-label">Określa tekst alternatywny obrazka</label><br>
+    </div>
+
+    <!-- Pytanie 9 -->
+    <div class="mb-3 mt-3">
+        <label for="q9a" class="form-label">Który z poniższych tagów jest używany do tworzenia wiersza w tabeli?</label><br>
+        <input type="radio" class="form-check-input" id="q9a" name="q9" value="<tr>" data-correct="true">>
+        <label for="q9a" class="form-check-label">&lt;tr&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q9b" name="q9" value="<td>">
+        <label for="q9b" class="form-check-label">&lt;td&gt;</label><br>
+        <input type="radio" class="form-check-input" id="q9c" name="q9" value="<table>">
+        <label for="q9c" class="form-check-label">&lt;table&gt;</label><br>
+    </div>
+
+    <!-- Pytanie 10 -->
+    <div class="mb-3 mt-3">
+        <label for="q10a" class="form-label">Co robi tag &lt;form&gt; w HTML?</label><br>
+        <input type="radio" class="form-check-input" id="q10a" name="q10" value="Tworzy formularz, który można wypełniać" data-correct="true">>
+        <label for="q10a" class="form-check-label">Tworzy formularz, który można wypełniać</label><br>
+        <input type="radio" class="form-check-input" id="q10b" name="q10" value="Dodaje obrazek do strony">
+        <label for="q10b" class="form-check-label">Dodaje obrazek do strony</label><br>
+        <input type="radio" class="form-check-input" id="q10c" name="q10" value="Tworzy tabelę">
+        <label for="q10c" class="form-check-label">Tworzy tabelę</label><br>
+    </div>
+    <button type="submit">Zatwierdź</button>
+
+</form>
+<script>
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        // Funkcja do obliczania punktów
+        function calculateScore() {
+            let score = 0;
+            const questions = document.querySelectorAll('div.mb-3');
+
+            questions.forEach(question => {
+                const correctOption = question.querySelector('input[data-correct="true"]');
+                if (correctOption && correctOption.checked) {
+                    score++;
+                }
+            });
+
+            return score;
+        }
+
+        const formData = new FormData(document.getElementById("quizForm"));
+        const score = calculateScore();
+        formData.append("score", score);
+
+        fetch('https://script.google.com/macros/s/AKfycbwQjHP5OVqqz5dXeQZbM3jTTmJ9aKQJYgSQ9CsmgBZaIuz4VZqAPWAnH6l1USceIFVW/exec', {
+            method: "POST",
+            body: new URLSearchParams(formData)
+        }).then(response => response.text())
+            .then(data => alert(data));
+    });
+</script>
+</body>
+</html>
