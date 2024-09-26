@@ -1,0 +1,136 @@
+
+body{
+    background-image: url("matrix.webp");
+}
+.rounded-top {
+    /*background: linear-gradient(135deg, #0d4728 30%, #102d1b 70%);*/
+    background-image: url("tlo.png");
+    border-radius: 0.5rem;
+    padding: 40px; /* Zwiększenie paddingu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%; /* Szerokość diva */
+    max-width: 600px; /* Maksymalna szerokość diva */
+    margin: 0 auto; /* Wyśrodkowanie diva */
+}
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px #000000;
+}
+.group-btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.group-btn input[type="button"] {
+    margin: 0 10px;
+    padding: 10px 20px;
+    /*background-color: #ffffff;*/
+    color: #0d4728;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+/* Stylizacja ikon */
+.group-btn button i {
+    font-size: 36px; /* Zwiększenie rozmiaru ikon */
+    color: #ffffff;  /* Kolor ikon */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Stylizacja przycisków */
+.group-btn button {
+    background-color: #0d4728; /* Kolor tła przycisku */
+    border: none;
+    border-radius: 50%; /* Zaokrąglenie przycisków */
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efekt hover (najechanie myszką) na przyciski */
+.group-btn button:hover {
+    background-color: #128b4b; /* Zmiana koloru tła przycisku */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.group-btn button:hover i {
+    transform: scale(1.1); /* Powiększenie ikony */
+    color: #a8ffbc; /* Zmiana koloru ikony przy najechaniu */
+}
+.quiz-section {
+    background-color: rgba(255, 255, 255, 0.9); /* Półprzezroczyste tło */
+    border-radius: 15px; /* Zaokrąglone rogi */
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Cień dla eleganckiego efektu */
+    margin-top: 20px;
+}
+
+.quiz-section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0d4728; /* Kolor nagłówka quizu */
+}
+
+.form-label {
+    font-size: 18px; /* Większa czcionka dla etykiet pytań */
+    color: #0d4728; /* Kolor tekstu pytań */
+    margin-bottom: 10px;
+}
+
+.form-check-label {
+    font-size: 16px; /* Większa czcionka dla odpowiedzi */
+    margin-left: 10px;
+}
+
+button[type="submit"] {
+    background-color: #0d4728;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto; /* Wycentrowanie przycisku */
+}
+
+button[type="submit"]:hover {
+    background-color: #128b4b;
+    transform: scale(1.05); /* Subtelny efekt powiększenia przy najechaniu */
+}
+
+.alert {
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+}
+.rounded-top {
+    overflow: hidden; /* Ukrywa nadmiarową zawartość */
+}
+
+/* Stylizacja sekcji quizu */
+.quiz-section {
+    max-height: 800px; /* Maksymalna wysokość, dostosuj według potrzeb */
+    overflow-y: auto; /* Dodaje przewijanie, jeśli zawartość jest zbyt duża */
+}
+
+/* Stylizacja logo, aby nie wpływało na wysokość sekcji */
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
