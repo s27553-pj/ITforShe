@@ -1,25 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Quiz ITforSHE</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body{
+            background-image: url("matrix.webp");
+        }
+        .rounded-top {
+            /*background: linear-gradient(135deg, #0d4728 30%, #102d1b 70%);*/
+            background-image: url("tlo.png");
+            border-radius: 0.5rem;
+            padding: 40px; /* Zwiększenie paddingu */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%; /* Szerokość diva */
+            max-width: 600px; /* Maksymalna szerokość diva */
+            margin: 0 auto; /* Wyśrodkowanie diva */
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .group-btn {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .group-btn input[type="button"] {
+            margin: 0 10px;
+            padding: 10px 20px;
+            /*background-color: #ffffff;*/
+            color: #0d4728;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        /* Stylizacja ikon */
+        .group-btn button i {
+            font-size: 36px; /* Zwiększenie rozmiaru ikon */
+            color: #ffffff;  /* Kolor ikon */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Stylizacja przycisków */
+        .group-btn button {
+            background-color: #0d4728; /* Kolor tła przycisku */
+            border: none;
+            border-radius: 50%; /* Zaokrąglenie przycisków */
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efekt hover (najechanie myszką) na przyciski */
+        .group-btn button:hover {
+            background-color: #128b4b; /* Zmiana koloru tła przycisku */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .group-btn button:hover i {
+            transform: scale(1.1); /* Powiększenie ikony */
+            color: #a8ffbc; /* Zmiana koloru ikony przy najechaniu */
+        }
+        .quiz-section {
+            background-color: rgba(255, 255, 255, 0.9); /* Półprzezroczyste tło */
+            border-radius: 15px; /* Zaokrąglone rogi */
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Cień dla eleganckiego efektu */
+            margin-top: 20px;
+        }
+
+        .quiz-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #0d4728; /* Kolor nagłówka quizu */
+        }
+
+        .form-label {
+            font-size: 18px; /* Większa czcionka dla etykiet pytań */
+            color: #0d4728; /* Kolor tekstu pytań */
+            margin-bottom: 10px;
+        }
+
+        .form-check-label {
+            font-size: 16px; /* Większa czcionka dla odpowiedzi */
+            margin-left: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #0d4728;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 18px;
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto; /* Wycentrowanie przycisku */
+        }
+
+        button[type="submit"]:hover {
+            background-color: #128b4b;
+            transform: scale(1.05); /* Subtelny efekt powiększenia przy najechaniu */
+        }
+
+        .alert {
+            text-align: center;
+            font-size: 18px;
+            padding: 15px;
+        }
+        .rounded-top {
+            overflow: hidden; /* Ukrywa nadmiarową zawartość */
+        }
+
+        /* Stylizacja sekcji quizu */
+        .quiz-section {
+            max-height: 800px; /* Maksymalna wysokość, dostosuj według potrzeb */
+            overflow-y: auto; /* Dodaje przewijanie, jeśli zawartość jest zbyt duża */
+        }
+
+        /* Stylizacja logo, aby nie wpływało na wysokość sekcji */
+        .logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
 </head>
 <body>
-<form id="quizForm">
-    <div class="mb-3 mt-3">
-        <label for="name" class="form-label">Imię:</label>
-        <input type="text" class="form-control" id="name" placeholder="wpisz imię" name="name">
-    </div>
-    <div class="mb-3 mt-3">
-        <label for="surname" class="form-label">Email:</label>
-        <input type="text" class="form-control" id="surname" placeholder="wpisz nazwisko" name="surname">
-    </div>
-    <div class="mb-3 mt-3">
-        <label for="email" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="email" placeholder="wpisz Email" name="email">
-    </div>
+<h1 class="text-center" style="color: white">Internetowi odkrywcy</h1>
+<h2 class="text-center" style="color: white">Wybierz test:</h2>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+           <div  id="main-section" class="rounded-top h-100">
+               <div class="group-btn text-center">
+                   <button type="button" class="mx-5" onclick="showQuiz('quizHTML')">
+                       <i class="fas fa-code"></i>
+                   </button>
+                   <button type="button" class="mx-5" onclick="showQuiz('quizCSS')">
+                       <i class="fas fa-paint-brush"></i>
+                   </button>
+               </div>
+
+               <div class="logo">
+                <img src="logo.png" style="width: 200px; height:80px">
+            </div>
+            </div>
+<!--            <h1 class="text-center mb-4">Quiz HTML</h1>-->
+            <div id="quizHTML" class="quiz-section" style="display: none;">
+                <form id="quizHTMLForm">
+                    <div class="mb-3 mt-3">
+                        <label for="firstName" class="form-label">Imię:</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="wpisz imię" name="firstName" required>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="lastName" class="form-label">Nazwisko:</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="wpisz nazwisko" name="lastName" required>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="wpisz Email" name="email" required>
+                    </div>
     <!-- Pytanie 1 -->
     <div class="mb-3 mt-3">
         <label for="q1a" class="form-label">Co oznacza skrót HTML?</label><br>
@@ -132,35 +292,233 @@
     <button type="submit">Zatwierdź</button>
 
 </form>
+                </div>
+            <div id="quizCSS" class="quiz-section" style="display: none;">
+                <form id="quizCSSForm">
+                    <div class="mb-3 mt-3">
+                        <label for="name" class="form-label">Imię:</label>
+                        <input type="text" class="form-control" id="name" placeholder="wpisz imię" name="name" required>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="surname" class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="surname" placeholder="wpisz nazwisko" name="surname" required>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="mail" placeholder="wpisz Email" name="email" required>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="css1a" class="form-label">Co oznacza skrót CSS?</label><br>
+                        <input type="radio" class="form-check-input" id="css1a" name="css1" value="Cascading Style Sheets" data-correct="true">
+                        <label for="css1a" class="form-check-label">Cascading Style Sheets</label><br>
+                        <input type="radio" class="form-check-input" id="css1b" name="css1" value="Color Style Sheets">
+                        <label for="css1b" class="form-check-label">Color Style Sheets</label><br>
+                        <input type="radio" class="form-check-input" id="css1c" name="css1" value="Creative Style Sheets">
+                        <label for="css1c" class="form-check-label">Creative Style Sheets</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css2a" class="form-label">Który z poniższych znaczników jest używany do połączenia strony HTML z arkuszem stylów CSS?</label><br>
+                        <input type="radio" class="form-check-input" id="css2a" name="css2" value="<style>">
+                        <label for="css2a" class="form-check-label">&lt;style&gt;</label><br>
+                        <input type="radio" class="form-check-input" id="css2b" name="css2" value="<link>" data-correct="true">
+                        <label for="css2b" class="form-check-label">&lt;link&gt;</label><br>
+                        <input type="radio" class="form-check-input" id="css2c" name="css2" value="<stylesheet>">
+                        <label for="css2c" class="form-check-label">&lt;stylesheet&gt;</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css3a" class="form-label">Który z poniższych atrybutów CSS odpowiada za kolor tekstu?</label><br>
+                        <input type="radio" class="form-check-input" id="css3a" name="css3" value="background-color">
+                        <label for="css3a" class="form-check-label">background-color</label><br>
+                        <input type="radio" class="form-check-input" id="css3b" name="css3" value="text-color">
+                        <label for="css3b" class="form-check-label">text-color</label><br>
+                        <input type="radio" class="form-check-input" id="css3c" name="css3" value="color" data-correct="true">
+                        <label for="css3c" class="form-check-label">color</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css4a" class="form-label">Jak zmieniamy tło strony przy użyciu CSS?</label><br>
+                        <input type="radio" class="form-check-input" id="css4a" name="css4" value="background-color" data-correct="true">
+                        <label for="css4a" class="form-check-label">background-color</label><br>
+                        <input type="radio" class="form-check-input" id="css4b" name="css4" value="color">
+                        <label for="css4b" class="form-check-label">color</label><br>
+                        <input type="radio" class="form-check-input" id="css4c" name="css4" value="text-background">
+                        <label for="css4c" class="form-check-label">text-background</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css5a" class="form-label">Która z poniższych właściwości CSS odpowiada za odstępy wewnętrzne elementu (od jego zawartości do granicy elementu)?</label><br>
+                        <input type="radio" class="form-check-input" id="css5a" name="css5" value="padding" data-correct="true">
+                        <label for="css5a" class="form-check-label">padding</label><br>
+                        <input type="radio" class="form-check-input" id="css5b" name="css5" value="margin">
+                        <label for="css5b" class="form-check-label">margin</label><br>
+                        <input type="radio" class="form-check-input" id="css5c" name="css5" value="border">
+                        <label for="css5c" class="form-check-label">border</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css6a" class="form-label">Która z poniższych właściwości CSS ustawia odstęp między elementami na zewnątrz ich granic?</label><br>
+                        <input type="radio" class="form-check-input" id="css6a" name="css6" value="margin" data-correct="true">
+                        <label for="css6a" class="form-check-label">margin</label><br>
+                        <input type="radio" class="form-check-input" id="css6b" name="css6" value="padding">
+                        <label for="css6b" class="form-check-label">padding</label><br>
+                        <input type="radio" class="form-check-input" id="css6c" name="css6" value="border-spacing">
+                        <label for="css6c" class="form-check-label">border-spacing</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css7a" class="form-label">Jaką właściwość CSS należy zastosować, aby wyrównać tekst do środka?</label><br>
+                        <input type="radio" class="form-check-input" id="css7a" name="css7" value="text-align: center;" data-correct="true">
+                        <label for="css7a" class="form-check-label">text-align: center;</label><br>
+                        <input type="radio" class="form-check-input" id="css7b" name="css7" value="text-decoration: center;">
+                        <label for="css7b" class="form-check-label">text-decoration: center;</label><br>
+                        <input type="radio" class="form-check-input" id="css7c" name="css7" value="text-style: center;">
+                        <label for="css7c" class="form-check-label">text-style: center;</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css8a" class="form-label">Co robi właściwość border-radius?</label><br>
+                        <input type="radio" class="form-check-input" id="css8a" name="css8" value="Zmienia kolor obramowania">
+                        <label for="css8a" class="form-check-label">Zmienia kolor obramowania</label><br>
+                        <input type="radio" class="form-check-input" id="css8b" name="css8" value="Zaokrągla rogi elementu" data-correct="true">
+                        <label for="css8b" class="form-check-label">Zaokrągla rogi elementu</label><br>
+                        <input type="radio" class="form-check-input" id="css8c" name="css8" value="Dodaje cień do elementu">
+                        <label for="css8c" class="form-check-label">Dodaje cień do elementu</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css9a" class="form-label">Której właściwości CSS użyjemy, aby dodać cień do tekstu?</label><br>
+                        <input type="radio" class="form-check-input" id="css9a" name="css9" value="text-shadow" data-correct="true">
+                        <label for="css9a" class="form-check-label">text-shadow</label><br>
+                        <input type="radio" class="form-check-input" id="css9b" name="css9" value="box-shadow">
+                        <label for="css9b" class="form-check-label">box-shadow</label><br>
+                        <input type="radio" class="form-check-input" id="css9c" name="css9" value="shadow-text">
+                        <label for="css9c" class="form-check-label">shadow-text</label><br>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="css10a" class="form-label">Jaką właściwość CSS zastosujesz, aby element był niewidoczny, ale nadal zajmował miejsce na stronie?</label><br>
+                        <input type="radio" class="form-check-input" id="css10a" name="css10" value="visibility: hidden;" data-correct="true">
+                        <label for="css10a" class="form-check-label">visibility: hidden;</label><br>
+                        <input type="radio" class="form-check-input" id="css10b" name="css10" value="display: none;">
+                        <label for="css10b" class="form-check-label">display: none;</label><br>
+                        <input type="radio" class="form-check-input" id="css10c" name="css10" value="opacity: 0;">
+                        <label for="css10c" class="form-check-label">opacity: 0;</label><br>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Sprawdź wynik</button>
+                </form>
+                <div id="cssResponseMessage"></div>
+            </div>
+
+            <div id="responseMessage" class="mt-3"></div>
+ </div>
+        </div>
+</div>
 <script>
-    document.getElementById("quizForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+    // Funkcja do obliczania punktów
+    function calculateScore(formId) {
+        let score = 0;
+        const questions = document.querySelectorAll(`#${formId} div.mb-3`);
 
-        // Funkcja do obliczania punktów
-        function calculateScore() {
-            let score = 0;
-            const questions = document.querySelectorAll('div.mb-3');
+        questions.forEach(question => {
+            const correctOption = question.querySelector('input[data-correct="true"]');
+            if (correctOption && correctOption.checked) {
+                score++;
+            }
+        });
 
-            questions.forEach(question => {
-                const correctOption = question.querySelector('input[data-correct="true"]');
-                if (correctOption && correctOption.checked) {
-                    score++;
-                }
+        return score;
+    }
+
+    function validateInputs() {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("surname").value;
+        const email = document.getElementById("email").value;
+
+        if (!firstName || !lastName || !email) {
+            return false;
+        }
+        // Basic email format validation
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+
+    function sendFormData(formId, quizType) {
+        const score = calculateScore(formId);
+
+        const data = {
+            score: score,
+            quizType: quizType,
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("surname").value,
+            email: document.getElementById("email").value
+        };
+
+        // URL do Twojej aplikacji webowej
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwQq8DwaPe2bomVvFl429teBZDCXuGtcNBo2lRQeAAkTaGUPSh-nWGtRRGbgdzS1kYD/exec';
+
+        // Wysyłanie danych do Google Apps Script
+        fetch(scriptUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.text())
+            .then(responseText => {
+                const responseMessageElement = quizType === 'html' ? "responseMessage" : "cssResponseMessage";
+                alert("Dane zostały wysłane. Twój wynik: " + score + " punktów.");
+
+                document.getElementById(formId).reset(); // Czyści formularz po wysłaniu
+                window.location.reload();
+            })
+            .catch(error => {
+                const responseMessageElement = quizType === 'html' ? "responseMessage" : "cssResponseMessage";
+                document.getElementById(responseMessageElement).innerHTML = `<div class="alert alert-danger">Wystąpił błąd: ${error.message}</div>`;
             });
+    }
 
-            return score;
+    document.getElementById("quizHTMLForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Zapobiega odświeżeniu strony
+        sendFormData("quizHTMLForm", "html");
+    });
+
+    document.getElementById("quizCSSForm").addEventListener("submit", function (e) {
+        e.preventDefault(); // Zapobiega odświeżeniu strony
+
+        if (!validateInputs()) {
+            document.getElementById("cssResponseMessage").innerHTML = `<div class="alert alert-danger">Proszę wypełnić wszystkie pola poprawnie.</div>`;
+            return;
         }
 
-        const formData = new FormData(document.getElementById("quizForm"));
-        const score = calculateScore();
-        formData.append("score", score);
+        sendFormData("quizCSSForm", "css");
+    });
 
-        fetch('https://script.google.com/macros/s/AKfycbwQjHP5OVqqz5dXeQZbM3jTTmJ9aKQJYgSQ9CsmgBZaIuz4VZqAPWAnH6l1USceIFVW/exec', {
-            method: "POST",
-            body: new URLSearchParams(formData)
-        }).then(response => response.text())
-            .then(data => alert(data));
+    function showQuiz(quizId) {
+        // Ukrywamy główną sekcję
+        document.getElementById("main-section").style.display = 'none';
+
+        // Ukrywamy wszystkie quizy
+        const allQuizzes = document.querySelectorAll('.quiz-section');
+        allQuizzes.forEach(quiz => quiz.style.display = 'none');
+
+        // Pokazujemy wybrany quiz
+        document.getElementById(quizId).style.display = 'block';
+    }
+
+    // Obsługa przycisków do wyświetlania formularzy
+    document.querySelectorAll('.quiz-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const quizId = this.getAttribute('data-quiz-id');
+            showQuiz(quizId);
+        });
     });
 </script>
+
+
 </body>
 </html>
