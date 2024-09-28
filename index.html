@@ -508,13 +508,13 @@
         const data = {
             score: score,
             quizType: quizType,
-            firstName: document.getElementById("firstName").value,
+            firstName: document.getElementById("name").value,
             lastName: document.getElementById("surname").value,
-            email: document.getElementById("email").value
+            email: document.getElementById("mail").value
         };
 
         // URL do Twojej aplikacji webowej
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwQq8DwaPe2bomVvFl429teBZDCXuGtcNBo2lRQeAAkTaGUPSh-nWGtRRGbgdzS1kYD/exec';
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbwAs_hugRWV558t3ye08Q-UMpQFDsg0wFzdE2_fA1QjxcLI-dBUqaymc2OcQwtRG7o/exec';
 
         // Wysyłanie danych do Google Apps Script
         fetch(scriptUrl, {
@@ -547,10 +547,10 @@
     document.getElementById("quizCSSForm").addEventListener("submit", function (e) {
         e.preventDefault(); // Zapobiega odświeżeniu strony
 
-        if (!validateInputs()) {
-            document.getElementById("cssResponseMessage").innerHTML = `<div class="alert alert-danger">Proszę wypełnić wszystkie pola poprawnie.</div>`;
-            return;
-        }
+        // if (!validateInputs()) {
+        //     document.getElementById("cssResponseMessage").innerHTML = `<div class="alert alert-danger">Proszę wypełnić wszystkie pola poprawnie.</div>`;
+        //     return;
+        // }
 
         sendFormData("quizCSSForm", "css");
     });
